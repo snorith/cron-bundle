@@ -79,7 +79,7 @@ class CronScanCommand extends ContainerAwareCommand
             }
         }
 
-        file_put_contents($this->getCacheFile(), json_encode($data));
+        file_put_contents($this->getCacheFile(), json_encode($jobs));
 
         $output->writeln("Finished scanning for cron jobs");
     }
