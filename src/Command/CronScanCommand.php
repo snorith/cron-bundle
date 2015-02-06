@@ -38,6 +38,10 @@ class CronScanCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $jobs = $this->getCurrentJobs();
+		  
+ 	    if (is_null($jobs)) {
+ 		    $jobs = array();
+ 	    }
 
         // Enumerate all the jobs currently loaded
         $reader = $this->getContainer()->get("annotation_reader");
@@ -55,6 +59,8 @@ class CronScanCommand extends ContainerAwareCommand
                             $newTime          = (new \DateTime())->add(new \DateInterval($config->value));
                             $data['interval'] = $config->value;
                             $data['nextRun']  = $newTime->getTimestamp();
+
+									 $jobs[$job] = $data;
 
                             $output->writeln("Updated interval for {$job} to {$config->value}");
                         }
