@@ -118,6 +118,6 @@ class CronRunCommand extends ContainerAwareCommand
      */
     private function getCacheFile()
     {
-        return $this->getContainer()->getParameter('kernel.cache_dir').'cronjob.json';
+        return $this->getContainer()->getParameter('kernel.cache_dir').'/cronjob.json';
     }
 }
