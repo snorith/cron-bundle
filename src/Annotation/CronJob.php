@@ -12,12 +12,12 @@
 namespace Aequasi\Bundle\CronBundle\Annotation;
 
 /**
- * @Annotation()
- * @Target("CLASS")
  */
 use Doctrine\Common\Annotations\Annotation;
 
 /**
+ * @Annotation()
+ * @Target("CLASS")
  * @author Aaron Scherer <aequasi@gmail.com>
  */
 class CronJob extends Annotation
